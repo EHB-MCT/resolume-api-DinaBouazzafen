@@ -22,25 +22,28 @@ document.addEventListener('DOMContentLoaded', function () {
             lastUsedColumn = randomColumn;
 
             for (let layer = 1; layer <= 3; layer++) {
-                const command = `http://10.2.88.30:8080/api/v1/composition/layers/${layer}/clips/${randomColumn}/connect`;
+                (function (layer, randomColumn) {
+                    const command = `http://00.0.00.00:8080/api/v1/composition/layers/${layer}/clips/${randomColumn}/connect`;
 
-                fetch(command, {
-                    method: 'POST',
-                })
-                .then(response => {
-                    if (response.ok) {
-                        console.log(`Resolume button ${index + 1} pressed successfully for layer ${layer}, column ${randomColumn}.`);
-                    } else {
-                        console.error(`Failed to trigger Resolume button ${index + 1} for layer ${layer}, column ${randomColumn}.`);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+                    fetch(command, {
+                        method: 'POST',
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log(`Resolume button ${index + 1} pressed successfully for layer ${layer}, column ${randomColumn}.`);
+                        } else {
+                            console.error(`Failed to trigger Resolume button ${index + 1} for layer ${layer}, column ${randomColumn}.`);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                })(layer, randomColumn);
             }
         });
     });
 });
+
 
 
 
