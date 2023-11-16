@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (columns.length > 0) {
                 if(firstFirstButton && btn.target.id == "resolumeButton1"){
                     firstFirstButton = false
-                    for (let layer = 1; layer <= 3; layer++) {
+                    for (let layer = 1; layer <= 4; layer++) {
                         (function (layer, randomColumn) {
                             const command = `http://00.0.00.00:8080/api/v1/composition/layers/${layer}/clips/${startcolumn}/connect`;
         
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
                  if(firstSecondbutton && btn.target.id == "resolumeButton2" && SecondSecondbutton == false){
                     firstSecondbutton = false
                     SecondSecondbutton = true
-                    for (let layer = 1; layer <= 3; layer++) {
+                    for (let layer = 1; layer <= 4; layer++) {
                         (function (layer, randomColumn) {
                             const command = `http://00.0.00.00:8080/api/v1/composition/layers/${layer}/clips/21/connect`;
                             fetch(command, {
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                  if(!firstSecondbutton && btn.target.id == "resolumeButton2" && SecondSecondbutton){
                     SecondSecondbutton = false
-                    for (let layer = 1; layer <= 3; layer++) {
+                    for (let layer = 1; layer <= 4; layer++) {
                         (function (layer, randomColumn) {
                             const command = `http://00.0.00.00:8080/api/v1/composition/layers/${layer}/clips/22/connect`;
                             fetch(command, {
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             lastUsedColumn = randomColumn;
 
-            for (let layer = 1; layer <= 3; layer++) {
+            for (let layer = 1; layer <= 4; layer++) {
                 (function (layer, randomColumn) {
                     const command = `http://00.0.00.00:8080/api/v1/composition/layers/${layer}/clips/${randomColumn}/connect`;
                     fetch(command, {
